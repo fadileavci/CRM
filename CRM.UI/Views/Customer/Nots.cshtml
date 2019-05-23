@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CRM.Entity.Note>
+
+
+@{
+	ViewBag.Title = "Nots";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nots</h2>
+
+<p>
+<p>
+	<a href="/Customer/Not" class="btn btn-primary">Not Ekle</a>
+	@*@Html.ActionLink("Güncelle", "Edit", new { id = item.CustomerID }, new { @class = "btn btn-success" })*@
+	@*@Html.ActionLink("Note ekle ", "Not",  new { @class = "btn btn-success" })*@
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Date)
+			
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.NoteDetail)
+		</th>
+		<th>
+		@Html.DisplayNameFor(model => model.Status)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+
+				@Html.DisplayFor(modelItem => item.Date)
+
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.NoteDetail)
+			</td>
+			<td>
+
+				@if (item.Status=="Red")
+				{
+					<span class="btn btn-danger"></span>
+				}
+				else if(item.Status=="Green")
+
+				{
+					<span class="btn btn-success"></span>
+				}
+				else{
+					<span class="btn " style="background-color:dimgray"></span>
+
+				}
+			</td>
+			<td>
+				@*@Html.ActionLink("Güncelle", "Edit", new { id = item.NoteID}, new { @class = "btn btn-success" })*@
+				@Html.ActionLink("Sil", "DeleteNot", new { id= item.NoteID}, new { @class = "btn btn-success" })
+
+			</td>
+		</tr>
+	}
+
+</table>

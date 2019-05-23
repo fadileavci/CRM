@@ -1,0 +1,19 @@
+PROJE ADI :CRM
+
+Müþteri bilgilerini tutan, müþteri ile ilgili notlar alýnabilen (Lead lerin olduðu), müþteri ile toplu iletiþimler kurulabilen bir uygulama
+
+- CRM i kullanacak employee ler olacak. 
+- Employee logini olacak. 
+- Müþteri ekleme: adý soyadý, doðum tarihi, adresleri, telefon numalarý, email adresleri.
+- Müþteri not ekleme, kýrmýzý, yeþil, gri statüler
+- Müþteriye lead akýþý
+- Toplu iletiþim ekranlarý. 
+- Müþteriye özel metin gönderebilme özelliði. 
+	"Sayýn {Soyadi}, doðum gününüzü kutlarýz"
+
+
+
+
+- Roller: Satýþ rolü : lead ekleyebilir. Müþteri güncelleyebilir. 
+		Manager: lead ekleyebilir. Müþteri güncelleyebilir. Müþteri silebilir. 
+		Admin her iþi yapar. Leadleri silebilir.

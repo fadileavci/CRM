@@ -1,0 +1,80 @@
+﻿@model IEnumerable<CRM.Entity.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+	<a href="/Customer/AddCustomer" class="btn btn-primary">Müşteri Ekle</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+		<td>
+			@Html.ActionLink("Notlar", "Nots", new { id = item.CustomerID }, new { @class = "btn btn-primary" })
+			@Html.ActionLink("Leads", "Leads", new { id = item.CustomerID }, new { @class = "btn btn-primary" })
+			@Html.ActionLink("Güncelle", "UpdateCustomer", new { id = item.CustomerID }, new { @class = "btn btn-primary" })
+			@*@Html.ActionLink("Sil", "DeleteCustomer", new { id = item.CustomerID }, new { @class = "btn btn-primary" })*@
+			<a href="/Customer/DeleteCustomer" class="btn btn-primary" style="visibility:@ViewBag.Delete">Sil</a>
+			<input type="button" value="Kargola" style="visibility:@ViewBag.Delete" />
+
+		</td>
+    </tr>
+}
+
+</table>

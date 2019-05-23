@@ -1,0 +1,17 @@
+﻿@model CRM.Entity.Employee
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+	@Html.TextBoxFor(x => x.Email, new { placeholder = " kullanıcı adı" });
+	<br />
+	@Html.TextBoxFor(x => x.Password, new { placeholder = "Şifre" });
+	<input type="submit" value=" login" />
+}
